@@ -3,85 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media - Posts</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <title>Publicaciones - Social Media</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
 </head>
-<body class="grey lighten-4">
-    <nav>
-        <div class="nav-wrapper teal">
-            <a href="/" class="brand-logo center">Social Media</a>
+<body>
+    <header class="site-header">
+        <div class="shell navigation">
+            <a href="/" class="brand" aria-label="Social Media - Inicio">
+                <span class="brand-mark">SM</span>
+                <span class="brand-copy">
+                    <strong>Social Media</strong>
+                    <small>Comunidad digital</small>
+                </span>
+            </a>
+            <a href="/" class="nav-link">Inicio</a>
         </div>
-    </nav>
+    </header>
 
-    <main class="container">
-        <div class="page-heading">
-            <h4>Publicaciones</h4>
-            <a href="/posts/new" class="btn waves-effect waves-light teal">
-                <i class="material-icons left">add</i>
+    <main class="shell content-area">
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">Comunidad</p>
+                <h1>Publicaciones</h1>
+                <p>Consulta las ideas compartidas y administra el contenido registrado.</p>
+            </div>
+            <a href="/posts/new" class="action-button">
+                <span class="material-icons" aria-hidden="true">add</span>
                 Nueva publicación
             </a>
-        </div>
+        </section>
 
         <% if (posts.length === 0) { %>
-            <p class="center-align flow-text">Aún no hay publicaciones registradas.</p>
+            <section class="empty-state">
+                <span class="material-icons" aria-hidden="true">inbox</span>
+                <h2>Aún no hay publicaciones</h2>
+                <p>Crea la primera publicación para comenzar.</p>
+            </section>
         <% } %>
 
-        <div class="row">
+        <section class="posts-grid" aria-label="Lista de publicaciones">
             <% posts.forEach((post) => { %>
-                <div class="col s12 m6 l4">
-                    <article class="card post-card" id="post-<%= post._id %>">
-                        <div class="card-image">
-                            <img
-                                src="<%= post.imageUrl || 'https://media.istockphoto.com/id/627795510/photo/example.jpg?s=612x612&w=0&k=20&c=lpUf5rjPVd6Kl_M6heqC8sUncR4FLmtsRzeYdTr5X_I=' %>"
-                                alt="Imagen de la publicación <%= post.title %>"
-                            >
-                        </div>
+                <article class="post-card" id="post-<%= post._id %>">
+                    <img
+                        class="post-image"
+                        src="<%= post.imageUrl || '/post-placeholder.svg' %>"
+                        alt="Imagen de la publicación <%= post.title %>"
+                    >
 
-                        <div class="card-content">
-                            <span class="card-title"><%= post.title %></span>
-                            <p><%= post.content %></p>
+                    <div class="post-content">
+                        <h2><%= post.title %></h2>
+                        <p><%= post.content %></p>
 
-                            <% if (post.hashtags?.length) { %>
-                                <div class="post-hashtags">
-                                    <strong>Hashtags:</strong>
-                                    <% post.hashtags.forEach((hashtag) => { %>
-                                        <span class="chip"><%= hashtag %></span>
-                                    <% }) %>
-                                </div>
-                            <% } %>
-                        </div>
-
-                        <div class="card-action">
-                            <div class="post-actions right">
-                                <a href="/posts/<%= post._id %>/edit" class="btn-flat" aria-label="Editar publicación">
-                                    <i class="material-icons teal-text">edit</i>
-                                </a>
-                                <form
-                                    action="/posts/<%= post._id %>/delete"
-                                    method="POST"
-                                    onsubmit="return confirm('¿Deseas eliminar esta publicación?');"
-                                >
-                                    <button type="submit" class="btn-flat" aria-label="Eliminar publicación">
-                                        <i class="material-icons red-text">delete</i>
-                                    </button>
-                                </form>
+                        <% if (post.hashtags?.length) { %>
+                            <div class="post-hashtags" aria-label="Hashtags">
+                                <% post.hashtags.forEach((hashtag) => { %>
+                                    <span class="tag"><%= hashtag %></span>
+                                <% }) %>
                             </div>
-                            <span>
-                                <strong>Autor:</strong>
-                                <%= post.user ? `${post.user.name} ${post.user.lastName}` : 'Sin autor' %>
-                            </span>
-                            <small class="grey-text text-darken-1 post-date">
-                                <%= post.createdAt ? new Date(post.createdAt).toLocaleDateString('es-PE') : '' %>
-                            </small>
-                        </div>
-                    </article>
-                </div>
-            <% }) %>
-        </div>
-    </main>
+                        <% } %>
+                    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                    <footer class="post-footer">
+                        <div class="post-author">
+                            <strong><%= post.user ? `${post.user.name} ${post.user.lastName}` : 'Sin autor' %></strong>
+                            <span class="post-date">
+                                <%= post.createdAt ? new Date(post.createdAt).toLocaleDateString('es-PE') : 'Sin fecha' %>
+                            </span>
+                        </div>
+
+                        <div class="post-actions">
+                            <a href="/posts/<%= post._id %>/edit" class="icon-button" aria-label="Editar publicación">
+                                <span class="material-icons" aria-hidden="true">edit</span>
+                            </a>
+                            <form
+                                action="/posts/<%= post._id %>/delete"
+                                method="POST"
+                                onsubmit="return confirm('¿Deseas eliminar esta publicación?');"
+                            >
+                                <button type="submit" class="icon-button danger" aria-label="Eliminar publicación">
+                                    <span class="material-icons" aria-hidden="true">delete</span>
+                                </button>
+                            </form>
+                        </div>
+                    </footer>
+                </article>
+            <% }) %>
+        </section>
+    </main>
 </body>
 </html>

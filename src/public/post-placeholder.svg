@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Imagen predeterminada para publicación</title>
+  <desc id="desc">Composición geométrica en azul petróleo, verde azulado y dorado</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b252e"/>
+      <stop offset="1" stop-color="#12333f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <circle cx="970" cy="120" r="250" fill="#2f7d78" opacity="0.42"/>
+  <circle cx="1050" cy="570" r="180" fill="#b88b49" opacity="0.2"/>
+  <path d="M0 540L360 300L690 520L930 360L1200 560V675H0Z" fill="#dcecea" opacity="0.12"/>
+  <rect x="92" y="90" width="76" height="76" rx="18" fill="#2f7d78"/>
+  <text x="130" y="139" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">SM</text>
+  <text x="92" y="235" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700">Social Media</text>
+  <text x="96" y="288" fill="#b9c9cc" font-family="Segoe UI, Arial, sans-serif" font-size="28">Publicación de la comunidad</text>
+</svg>

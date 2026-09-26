@@ -3,24 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media - Home</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <title>Social Media - Inicio</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
 </head>
-<body class="container center-align" style="margin-top: 80px;">
-    <h2 class="blue-text text-darken-2">Bienvenido a Social Media 🚀</h2>
-    <p class="flow-text">Conéctate, comparte y explora publicaciones</p>
-
-    <div class="row" style="margin-top: 50px;">
-        <div class="col s12">
-            <a href="/posts" class="btn-large waves-effect waves-light blue darken-2">
-                <i class="material-icons left">image</i>
-                Ver Posts
+<body>
+    <header class="site-header">
+        <div class="shell navigation">
+            <a href="/" class="brand" aria-label="Social Media - Inicio">
+                <span class="brand-mark">SM</span>
+                <span class="brand-copy">
+                    <strong>Social Media</strong>
+                    <small>Comunidad digital</small>
+                </span>
             </a>
+            <a href="/posts" class="nav-link">Explorar publicaciones</a>
         </div>
-    </div>
+    </header>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <main>
+        <section class="hero">
+            <div class="shell hero-grid">
+                <div>
+                    <p class="eyebrow">Contenido que conecta</p>
+                    <h1>Ideas claras para una comunidad activa.</h1>
+                    <p class="hero-description">
+                        Comparte publicaciones, descubre nuevas perspectivas y mantén tus ideas organizadas en un solo espacio.
+                    </p>
+                    <a href="/posts" class="action-button">
+                        Ver publicaciones
+                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </div>
+
+                <aside class="hero-card">
+                    <div class="hero-card-icon">
+                        <span class="material-icons" aria-hidden="true">forum</span>
+                    </div>
+                    <h2>Una experiencia sencilla</h2>
+                    <p>Crea, edita y administra publicaciones con una interfaz pensada para ser directa, legible y consistente.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="feature-strip" aria-label="Características">
+            <div class="shell feature-grid">
+                <div class="feature-item">
+                    <span class="material-icons" aria-hidden="true">article</span>
+                    <span>Publicaciones ordenadas</span>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons" aria-hidden="true">edit_note</span>
+                    <span>Edición rápida y clara</span>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons" aria-hidden="true">verified_user</span>
+                    <span>Validación de datos</span>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

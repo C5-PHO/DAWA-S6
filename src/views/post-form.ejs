@@ -4,114 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> - Social Media</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
 </head>
-<body class="grey lighten-4">
-    <nav>
-        <div class="nav-wrapper teal">
-            <a href="/" class="brand-logo center">Social Media</a>
+<body>
+    <header class="site-header">
+        <div class="shell navigation">
+            <a href="/" class="brand" aria-label="Social Media - Inicio">
+                <span class="brand-mark">SM</span>
+                <span class="brand-copy">
+                    <strong>Social Media</strong>
+                    <small>Comunidad digital</small>
+                </span>
+            </a>
+            <a href="/posts" class="nav-link">Publicaciones</a>
         </div>
-    </nav>
+    </header>
 
-    <main class="container form-container">
-        <div class="card-panel">
-            <h4><%= title %></h4>
+    <main class="shell form-container">
+        <section class="form-card">
+            <header class="form-header">
+                <p class="eyebrow">Gestión de contenido</p>
+                <h1><%= title %></h1>
+                <p>Completa los datos para mantener la publicación clara y bien organizada.</p>
+            </header>
 
             <% if (error) { %>
-                <div class="card-panel red lighten-4 red-text text-darken-4" role="alert">
-                    <%= error %>
-                </div>
+                <div class="notice notice-error" role="alert"><%= error %></div>
             <% } %>
 
             <% if (users.length === 0) { %>
-                <div class="card-panel amber lighten-4 amber-text text-darken-4">
-                    Debes registrar al menos un usuario antes de crear publicaciones.
-                </div>
+                <div class="notice notice-warning">Debes registrar al menos un usuario antes de crear publicaciones.</div>
             <% } %>
 
             <form action="<%= action %>" method="POST">
-                <div class="input-field">
-                    <input
-                        id="title"
-                        name="title"
-                        type="text"
-                        value="<%= post.title || '' %>"
-                        minlength="5"
-                        maxlength="30"
-                        required
-                    >
-                    <label for="title" class="active">Título</label>
-                    <span class="helper-text">Entre 5 y 30 caracteres</span>
-                </div>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="title">Título</label>
+                        <input id="title" name="title" type="text" value="<%= post.title || '' %>" minlength="5" maxlength="30" required>
+                        <span class="helper-text">Entre 5 y 30 caracteres</span>
+                    </div>
 
-                <div class="input-field">
-                    <textarea
-                        id="content"
-                        name="content"
-                        class="materialize-textarea"
-                        minlength="10"
-                        required
-                    ><%= post.content || '' %></textarea>
-                    <label for="content" class="active">Contenido</label>
-                    <span class="helper-text">Mínimo 10 caracteres</span>
-                </div>
+                    <div class="form-field">
+                        <label for="content">Contenido</label>
+                        <textarea id="content" name="content" minlength="10" required><%= post.content || '' %></textarea>
+                        <span class="helper-text">Mínimo 10 caracteres</span>
+                    </div>
 
-                <div class="input-field">
-                    <input
-                        id="hashtags"
-                        name="hashtags"
-                        type="text"
-                        value="<%= Array.isArray(post.hashtags) ? post.hashtags.join(', ') : (post.hashtags || '') %>"
-                    >
-                    <label for="hashtags" class="active">Hashtags</label>
-                    <span class="helper-text">Sepáralos con comas, por ejemplo: nodejs, mongodb</span>
-                </div>
+                    <div class="form-field">
+                        <label for="hashtags">Hashtags</label>
+                        <input id="hashtags" name="hashtags" type="text" value="<%= Array.isArray(post.hashtags) ? post.hashtags.join(', ') : (post.hashtags || '') %>">
+                        <span class="helper-text">Sepáralos con comas, por ejemplo: nodejs, mongodb</span>
+                    </div>
 
-                <div class="input-field">
-                    <input
-                        id="imageUrl"
-                        name="imageUrl"
-                        type="url"
-                        value="<%= post.imageUrl || '' %>"
-                    >
-                    <label for="imageUrl" class="active">URL de la imagen</label>
-                </div>
+                    <div class="form-field">
+                        <label for="imageUrl">URL de la imagen</label>
+                        <input id="imageUrl" name="imageUrl" type="url" value="<%= post.imageUrl || '' %>" placeholder="https://ejemplo.com/imagen.jpg">
+                    </div>
 
-                <div class="input-field">
-                    <select id="userId" name="userId" required>
-                        <option value="" disabled <%= post.user ? '' : 'selected' %>>Selecciona un autor</option>
-                        <% users.forEach((user) => { %>
-                            <% const selectedUserId = post.user?._id || post.user || post.userId; %>
-                            <option
-                                value="<%= user._id %>"
-                                <%= String(selectedUserId || '') === String(user._id) ? 'selected' : '' %>
-                            >
-                                <%= user.name %> <%= user.lastName %>
-                            </option>
-                        <% }) %>
-                    </select>
-                    <label for="userId">Autor</label>
+                    <div class="form-field">
+                        <label for="userId">Autor</label>
+                        <select id="userId" name="userId" required>
+                            <option value="" disabled <%= post.user ? '' : 'selected' %>>Selecciona un autor</option>
+                            <% users.forEach((user) => { %>
+                                <% const selectedUserId = post.user?._id || post.user || post.userId; %>
+                                <option value="<%= user._id %>" <%= String(selectedUserId || '') === String(user._id) ? 'selected' : '' %>>
+                                    <%= user.name %> <%= user.lastName %>
+                                </option>
+                            <% }) %>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-actions">
-                    <a href="/posts" class="btn-flat">Cancelar</a>
-                    <button type="submit" class="btn waves-effect waves-light teal" <%= users.length === 0 ? 'disabled' : '' %>>
+                    <a href="/posts" class="secondary-button">Cancelar</a>
+                    <button type="submit" class="action-button" <%= users.length === 0 ? 'disabled' : '' %>>
                         <%= submitLabel %>
-                        <i class="material-icons right">send</i>
+                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
                     </button>
                 </div>
             </form>
-        </div>
+        </section>
     </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            M.FormSelect.init(document.querySelectorAll("select"));
-            M.updateTextFields();
-        });
-    </script>
 </body>
 </html>
