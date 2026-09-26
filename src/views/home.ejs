@@ -24,6 +24,7 @@
             <nav class="main-nav" aria-label="Navegación principal">
                 <a href="#features" class="nav-link">Características</a>
                 <a href="#solutions" class="nav-link">Soluciones</a>
+                <a href="#stats" class="nav-link">Impacto</a>
                 <a href="/posts" class="nav-link highlight">Explorar</a>
             </nav>
         </div>
@@ -33,74 +34,136 @@
         <section class="hero">
             <div class="shell hero-grid">
                 <div class="hero-copy">
-                    <span class="eyebrow">Contenido que conecta</span>
-                    <h1>Construye comunidad, comparte ideas y escala tu presencia digital.</h1>
+                    <div class="trust-pill">
+                        <span class="material-icons" aria-hidden="true">bolt</span>
+                        Plataforma moderna para comunidades digitales
+                    </div>
+                    <h1>Publica ideas que conectan, convierten y crecen.</h1>
                     <p class="hero-description">
-                        Social Media combina una experiencia clara, rápida y moderna para publicar contenido, organizar conversaciones y mantener a tu comunidad activa con una interfaz profesional.
+                        Social Media es una experiencia digital diseñada para impulsar la comunidad, organizar contenido y crear una presencia online con estilo, claridad y engagement real.
                     </p>
                     <div class="cta-row">
                         <a href="/posts" class="action-button">
                             Ver publicaciones
                             <span class="material-icons" aria-hidden="true">arrow_forward</span>
                         </a>
-                        <a href="#features" class="secondary-button">Conocer más</a>
+                        <a href="#features" class="secondary-button">Descubre más</a>
                     </div>
-                    <div class="hero-stats" aria-label="Indicadores del proyecto">
+                    <div class="hero-stats" id="stats" aria-label="Indicadores del proyecto">
                         <div>
                             <strong>+2.4k</strong>
                             <span>interacciones</span>
                         </div>
                         <div>
                             <strong>24/7</strong>
-                            <span>disponibilidad</span>
+                            <span>activo</span>
                         </div>
                         <div>
-                            <strong>100%</strong>
-                            <span>dinámico</span>
+                            <strong>3x</strong>
+                            <span>más engagement</span>
                         </div>
                     </div>
                 </div>
 
-                <aside class="hero-card" aria-label="Resumen del proyecto">
-                    <div class="hero-card-icon">
-                        <span class="material-icons" aria-hidden="true">forum</span>
+                <div class="hero-visual" aria-label="Vista previa de la plataforma">
+                    <div class="dashboard-card main-card">
+                        <div class="panel-header">
+                            <span class="dot green"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot red"></span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-top">
+                                <div>
+                                    <small>Trending</small>
+                                    <strong>Community Growth</strong>
+                                </div>
+                                <span class="chip success">+18.4%</span>
+                            </div>
+                            <div class="chart-bars" aria-hidden="true">
+                                <span style="height: 35%"></span>
+                                <span style="height: 48%"></span>
+                                <span style="height: 60%"></span>
+                                <span style="height: 58%"></span>
+                                <span style="height: 76%"></span>
+                                <span style="height: 92%"></span>
+                                <span style="height: 100%"></span>
+                            </div>
+                            <div class="mini-metrics">
+                                <div>
+                                    <label>Reads</label>
+                                    <strong>14.7k</strong>
+                                </div>
+                                <div>
+                                    <label>Posts</label>
+                                    <strong>382</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mini-label">Plataforma moderna</div>
-                    <h2>Diseño simple y atractivo</h2>
-                    <p>Gestiona publicaciones, edita contenido con facilidad y crea una experiencia consistente para usuarios y administradores.</p>
-                    <ul class="feature-list">
-                        <li><span class="material-icons" aria-hidden="true">check_circle</span> Publicaciones con diseño limpio</li>
-                        <li><span class="material-icons" aria-hidden="true">check_circle</span> Gestión clara y centrada en UX</li>
-                        <li><span class="material-icons" aria-hidden="true">check_circle</span> Base de datos confiable con MongoDB</li>
-                    </ul>
-                </aside>
+
+                    <div class="floating-card card-one">
+                        <span class="material-icons" aria-hidden="true">auto_awesome</span>
+                        <div>
+                            <strong>Creación rápida</strong>
+                            <small>Diseño claro y moderno</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <span class="material-icons" aria-hidden="true">groups</span>
+                        <div>
+                            <strong>Comunidad activa</strong>
+                            <small>Más conexión</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-strip" aria-label="Marcas y confianza">
+            <div class="shell brand-row">
+                <span>Brand Studio</span>
+                <span>Launch Lab</span>
+                <span>Northfield</span>
+                <span>Pulse Ops</span>
+                <span>Nova</span>
             </div>
         </section>
 
         <section class="feature-strip" id="features" aria-label="Características principales">
             <div class="shell feature-grid">
-                <div class="feature-item">
+                <article class="feature-item">
                     <span class="material-icons" aria-hidden="true">article</span>
-                    <span>Contenido organizado</span>
-                </div>
-                <div class="feature-item">
+                    <div>
+                        <strong>Contenido organizado</strong>
+                        <p>Publicaciones visualmente limpias y fáciles de descubrir.</p>
+                    </div>
+                </article>
+                <article class="feature-item">
                     <span class="material-icons" aria-hidden="true">edit_note</span>
-                    <span>Edición rápida</span>
-                </div>
-                <div class="feature-item">
+                    <div>
+                        <strong>Edición rápida</strong>
+                        <p>Actualiza mensajes y contenido sin fricción ni complejidad.</p>
+                    </div>
+                </article>
+                <article class="feature-item">
                     <span class="material-icons" aria-hidden="true">verified_user</span>
-                    <span>Experiencia fiable</span>
-                </div>
+                    <div>
+                        <strong>Experiencia confiable</strong>
+                        <p>Arquitectura estable con base de datos y flujo claro.</p>
+                    </div>
+                </article>
             </div>
         </section>
 
         <section class="solutions" id="solutions">
             <div class="shell solutions-grid">
                 <div class="solution-copy">
-                    <p class="eyebrow dark">Por qué elegirlo</p>
-                    <h2>Una solución pensada para proyectos web modernos.</h2>
+                    <p class="eyebrow dark">Por qué funciona</p>
+                    <h2>Diseñado para proyectos web modernos, con enfoque en comunidad y crecimiento.</h2>
                     <p>
-                        Social Media está diseñado para fortalecer la conexión entre usuarios y contenido, con un stack escalable, una estructura limpia y una interfaz enfocada en la claridad visual.
+                        Social Media combina velocidad, claridad visual y una experiencia de usuario enfocada en la conexión real. El resultado es una solución potente para proyectos de contenido, marca y comunidad digital.
                     </p>
                 </div>
 
@@ -108,19 +171,29 @@
                     <article class="info-card">
                         <span class="material-icons" aria-hidden="true">speed</span>
                         <h3>Rendimiento</h3>
-                        <p>Arquitectura ligera y rutas optimizadas para ofrecer una experiencia rápida.</p>
+                        <p>Arquitectura ligera y optimizada para respuestas rápidas.</p>
                     </article>
                     <article class="info-card">
                         <span class="material-icons" aria-hidden="true">dashboard</span>
                         <h3>Escalabilidad</h3>
-                        <p>Listo para crecer con más datos, usuarios y nuevas funcionalidades.</p>
+                        <p>Preparado para crecer con más usuarios, datos y contenido.</p>
                     </article>
                     <article class="info-card">
                         <span class="material-icons" aria-hidden="true">touch_app</span>
-                        <h3>UX centrada</h3>
-                        <p>Diseño con foco en claridad, navegación y accesibilidad visual.</p>
+                        <h3>UX premium</h3>
+                        <p>Interacciones claras, elegantes y centradas en el usuario.</p>
                     </article>
                 </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="shell cta-inner">
+                <div>
+                    <p class="eyebrow cta-label">¿Listo para empezar?</p>
+                    <h3>Convierte ideas en comunidad con una presencia digital sólida.</h3>
+                </div>
+                <a href="/posts" class="action-button">Ir a publicaciones</a>
             </div>
         </section>
 
