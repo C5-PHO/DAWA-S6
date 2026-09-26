@@ -1,37 +1,35 @@
-import mongoose from "mongoose";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import connectDB from "./src/db/database.js";
-import postRepository from "./src/repositories/PostRepository.js";
-import userRepository from "./src/repositories/UserRepository.js";
+import homeRoutes from "./src/routes/home.routes.js";
+import postRoutes from "./src/routes/post.routes.js";
 
-const run = async () => {
+const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const port = process.env.PORT || 3000;
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "src", "views"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "src", "public")));
+
+app.use("/", homeRoutes);
+app.use("/posts", postRoutes);
+
+const startServer = async () => {
     try {
         await connectDB();
-
-        const user = await userRepository.findOrCreate({
-            email: "earevalo@tecsup.edu.pe",
-            name: "William",
-            lastName: "Arévalo",
+        app.listen(port, () => {
+            console.log(`Servidor en http://localhost:${port}`);
         });
-
-        console.log("Usuario registrado:", user);
-
-        await postRepository.findOrCreate({
-            title: "Hello",
-            content: "Hi, this is my first post!",
-            user: user._id,
-        });
-
-        const users = await userRepository.findAll();
-        console.log("Usuarios actuales:", users);
-
-        const posts = await postRepository.findAll();
-        console.log("Posts registrados:", posts);
     } catch (error) {
-        console.error("Error al ejecutar la aplicación:", error.message);
-        process.exitCode = 1;
-    } finally {
-        await mongoose.disconnect();
+        console.error("No se pudo iniciar el servidor:", error.message);
+        process.exit(1);
     }
 };
 
-await run();
+await startServer();
