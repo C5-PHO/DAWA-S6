@@ -1,8 +1,10 @@
 # Social Media
 
-<a href="https://trendshift.io/repositories/28176?utm_source=repository-badge&utm_medium=badge&utm_campaign=badge-repository-28176" target="_blank" rel="noopener noreferrer">
-  <img src="https://trendshift.io/api/badge/repositories/28176" alt="Social Media | Trendshift" width="250" height="55" />
-</a>
+<p align="center">
+  <a href="https://trendshift.io/repositories/28176?utm_source=repository-badge&utm_medium=badge&utm_campaign=badge-repository-28176" target="_blank" rel="noopener noreferrer">
+    <img src="https://trendshift.io/api/badge/repositories/28176" alt="Social Media | Trendshift" width="250" height="55" />
+  </a>
+</p>
 
 Social Media es una aplicación web moderna desarrollada con Node.js, Express y MongoDB para gestionar publicaciones, contenido digital y experiencias de comunidad en un entorno elegante y funcional.
 
