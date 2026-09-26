@@ -1,0 +1,67 @@
+body {
+    min-height: 100vh;
+}
+
+.page-heading {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 2rem 0 1.5rem;
+}
+
+.page-heading h4 {
+    margin: 0;
+}
+
+.post-card .card-image img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.post-card .card-content {
+    min-height: 185px;
+}
+
+.post-hashtags {
+    margin-top: 1.25rem;
+}
+
+.post-actions {
+    align-items: center;
+    display: flex;
+}
+
+.post-actions form {
+    display: inline;
+    margin: 0;
+}
+
+.post-date {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.form-container {
+    margin-top: 3rem;
+    max-width: 760px;
+}
+
+.form-actions {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+    .page-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .page-heading .btn {
+        width: 100%;
+    }
+}

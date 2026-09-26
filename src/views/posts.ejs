@@ -6,6 +6,7 @@
     <title>Social Media - Posts</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
 </head>
 <body class="grey lighten-4">
     <nav>
@@ -15,7 +16,13 @@
     </nav>
 
     <main class="container">
-        <h4 class="center-align">Publicaciones</h4>
+        <div class="page-heading">
+            <h4>Publicaciones</h4>
+            <a href="/posts/new" class="btn waves-effect waves-light teal">
+                <i class="material-icons left">add</i>
+                Nueva publicación
+            </a>
+        </div>
 
         <% if (posts.length === 0) { %>
             <p class="center-align flow-text">Aún no hay publicaciones registradas.</p>
@@ -24,7 +31,7 @@
         <div class="row">
             <% posts.forEach((post) => { %>
                 <div class="col s12 m6 l4">
-                    <article class="card">
+                    <article class="card post-card" id="post-<%= post._id %>">
                         <div class="card-image">
                             <img
                                 src="<%= post.imageUrl || 'https://media.istockphoto.com/id/627795510/photo/example.jpg?s=612x612&w=0&k=20&c=lpUf5rjPVd6Kl_M6heqC8sUncR4FLmtsRzeYdTr5X_I=' %>"
@@ -37,28 +44,37 @@
                             <p><%= post.content %></p>
 
                             <% if (post.hashtags?.length) { %>
-                                <p>
+                                <div class="post-hashtags">
                                     <strong>Hashtags:</strong>
                                     <% post.hashtags.forEach((hashtag) => { %>
                                         <span class="chip"><%= hashtag %></span>
                                     <% }) %>
-                                </p>
+                                </div>
                             <% } %>
                         </div>
 
                         <div class="card-action">
-                            <div class="right">
-                                <a href="#" class="btn-flat" aria-label="Editar publicación">
+                            <div class="post-actions right">
+                                <a href="/posts/<%= post._id %>/edit" class="btn-flat" aria-label="Editar publicación">
                                     <i class="material-icons teal-text">edit</i>
                                 </a>
-                                <a href="#" class="btn-flat" aria-label="Eliminar publicación">
-                                    <i class="material-icons red-text">delete</i>
-                                </a>
+                                <form
+                                    action="/posts/<%= post._id %>/delete"
+                                    method="POST"
+                                    onsubmit="return confirm('¿Deseas eliminar esta publicación?');"
+                                >
+                                    <button type="submit" class="btn-flat" aria-label="Eliminar publicación">
+                                        <i class="material-icons red-text">delete</i>
+                                    </button>
+                                </form>
                             </div>
                             <span>
                                 <strong>Autor:</strong>
                                 <%= post.user ? `${post.user.name} ${post.user.lastName}` : 'Sin autor' %>
                             </span>
+                            <small class="grey-text text-darken-1 post-date">
+                                <%= post.createdAt ? new Date(post.createdAt).toLocaleDateString('es-PE') : '' %>
+                            </small>
                         </div>
                     </article>
                 </div>
