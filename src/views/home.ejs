@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media - Inicio</title>
+    <meta name="description" content="Social Media es una plataforma moderna para publicar ideas, conectar comunidades y administrar contenido digital con Node.js, Express y MongoDB.">
+    <title>Social Media | Comunidad digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
 </head>
@@ -17,49 +21,123 @@
                     <small>Comunidad digital</small>
                 </span>
             </a>
-            <a href="/posts" class="nav-link">Explorar publicaciones</a>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <a href="#features" class="nav-link">Características</a>
+                <a href="#solutions" class="nav-link">Soluciones</a>
+                <a href="/posts" class="nav-link highlight">Explorar</a>
+            </nav>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="shell hero-grid">
-                <div>
-                    <p class="eyebrow">Contenido que conecta</p>
-                    <h1>Ideas claras para una comunidad activa.</h1>
+                <div class="hero-copy">
+                    <span class="eyebrow">Contenido que conecta</span>
+                    <h1>Construye comunidad, comparte ideas y escala tu presencia digital.</h1>
                     <p class="hero-description">
-                        Comparte publicaciones, descubre nuevas perspectivas y mantén tus ideas organizadas en un solo espacio.
+                        Social Media combina una experiencia clara, rápida y moderna para publicar contenido, organizar conversaciones y mantener a tu comunidad activa con una interfaz profesional.
                     </p>
-                    <a href="/posts" class="action-button">
-                        Ver publicaciones
-                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                    </a>
+                    <div class="cta-row">
+                        <a href="/posts" class="action-button">
+                            Ver publicaciones
+                            <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                        </a>
+                        <a href="#features" class="secondary-button">Conocer más</a>
+                    </div>
+                    <div class="hero-stats" aria-label="Indicadores del proyecto">
+                        <div>
+                            <strong>+2.4k</strong>
+                            <span>interacciones</span>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <span>disponibilidad</span>
+                        </div>
+                        <div>
+                            <strong>100%</strong>
+                            <span>dinámico</span>
+                        </div>
+                    </div>
                 </div>
 
-                <aside class="hero-card">
+                <aside class="hero-card" aria-label="Resumen del proyecto">
                     <div class="hero-card-icon">
                         <span class="material-icons" aria-hidden="true">forum</span>
                     </div>
-                    <h2>Una experiencia sencilla</h2>
-                    <p>Crea, edita y administra publicaciones con una interfaz pensada para ser directa, legible y consistente.</p>
+                    <div class="mini-label">Plataforma moderna</div>
+                    <h2>Diseño simple y atractivo</h2>
+                    <p>Gestiona publicaciones, edita contenido con facilidad y crea una experiencia consistente para usuarios y administradores.</p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons" aria-hidden="true">check_circle</span> Publicaciones con diseño limpio</li>
+                        <li><span class="material-icons" aria-hidden="true">check_circle</span> Gestión clara y centrada en UX</li>
+                        <li><span class="material-icons" aria-hidden="true">check_circle</span> Base de datos confiable con MongoDB</li>
+                    </ul>
                 </aside>
             </div>
         </section>
 
-        <section class="feature-strip" aria-label="Características">
+        <section class="feature-strip" id="features" aria-label="Características principales">
             <div class="shell feature-grid">
                 <div class="feature-item">
                     <span class="material-icons" aria-hidden="true">article</span>
-                    <span>Publicaciones ordenadas</span>
+                    <span>Contenido organizado</span>
                 </div>
                 <div class="feature-item">
                     <span class="material-icons" aria-hidden="true">edit_note</span>
-                    <span>Edición rápida y clara</span>
+                    <span>Edición rápida</span>
                 </div>
                 <div class="feature-item">
                     <span class="material-icons" aria-hidden="true">verified_user</span>
-                    <span>Validación de datos</span>
+                    <span>Experiencia fiable</span>
                 </div>
+            </div>
+        </section>
+
+        <section class="solutions" id="solutions">
+            <div class="shell solutions-grid">
+                <div class="solution-copy">
+                    <p class="eyebrow dark">Por qué elegirlo</p>
+                    <h2>Una solución pensada para proyectos web modernos.</h2>
+                    <p>
+                        Social Media está diseñado para fortalecer la conexión entre usuarios y contenido, con un stack escalable, una estructura limpia y una interfaz enfocada en la claridad visual.
+                    </p>
+                </div>
+
+                <div class="solution-cards">
+                    <article class="info-card">
+                        <span class="material-icons" aria-hidden="true">speed</span>
+                        <h3>Rendimiento</h3>
+                        <p>Arquitectura ligera y rutas optimizadas para ofrecer una experiencia rápida.</p>
+                    </article>
+                    <article class="info-card">
+                        <span class="material-icons" aria-hidden="true">dashboard</span>
+                        <h3>Escalabilidad</h3>
+                        <p>Listo para crecer con más datos, usuarios y nuevas funcionalidades.</p>
+                    </article>
+                    <article class="info-card">
+                        <span class="material-icons" aria-hidden="true">touch_app</span>
+                        <h3>UX centrada</h3>
+                        <p>Diseño con foco en claridad, navegación y accesibilidad visual.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="badge-section">
+            <div class="shell badge-wrap">
+                <a
+                    class="trend-badge"
+                    href="https://trendshift.io/repositories/28176?utm_source=repository-badge&utm_medium=badge&utm_campaign=badge-repository-28176"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Trendshift repository badge"
+                >
+                    <img
+                        src="https://trendshift.io/api/badge/repositories/28176"
+                        alt="Trendshift badge"
+                    />
+                </a>
             </div>
         </section>
     </main>
